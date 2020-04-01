@@ -1,0 +1,26 @@
+.global-nav {
+    font-family: karbon, sans-serif;
+    color: #384655;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.global-nav__icon-btn {
+    cursor: pointer;
+    position: relative;
+    z-index: 9999;
+}
+
+.global-nav__icon-btn + .global-nav__icon-btn {
+    margin-left: 22px;
+}
+
+.global-nav__menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
