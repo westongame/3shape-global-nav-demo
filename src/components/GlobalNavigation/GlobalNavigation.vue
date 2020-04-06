@@ -55,6 +55,7 @@
         <AccountMenu
             v-if="activeMenu === 'account'"
             :token="token"
+            :userName="userName"
         />
     </div>
 </template>
