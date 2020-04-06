@@ -34,7 +34,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 36px;
+    padding: 40px 16px;
     border-bottom: 1px solid #f4f4f3;
 }
 
@@ -48,7 +48,10 @@
 
 .account-menu__name {
     font-size: 30px;
-    margin-bottom: 44px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .account-menu__company {

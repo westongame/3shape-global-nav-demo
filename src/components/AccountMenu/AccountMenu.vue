@@ -17,7 +17,10 @@
                 />
             </div>
 
-            <div class="account-menu__name">
+            <div
+                class="account-menu__name"
+                :title="fullName"
+            >
                 {{fullName}}
             </div>
         </div>

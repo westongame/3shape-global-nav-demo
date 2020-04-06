@@ -5,15 +5,26 @@ export default {
         token: {
             type: String,
             required: true
+        },
+        userName: {
+            type: String
         }
     },
 
     computed: {
         decodedToken() {
+            if (this.userName) {
+                return null;
+            }
+
             return JSON.parse(window.atob(this.token.split('.')[1].replace('-', '+').replace('_', '/')));
         },
 
         fullName() {
+            if (this.userName) {
+                return this.userName;
+            }
+
             return `${this.decodedToken.firstName} ${this.decodedToken.lastName}`;
         },
 

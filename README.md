@@ -1,4 +1,4 @@
-# @3shape-global-nav-demo vue-component
+# @3shape-global-nav-demo
 
 ### Compiles and hot-reloads for development
 ```

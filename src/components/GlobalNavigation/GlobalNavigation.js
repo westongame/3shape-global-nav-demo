@@ -9,6 +9,10 @@ export default {
         token: {
             type: String,
             required: true
+        },
+        userName: {
+            type: String,
+            default: null
         }
     },
 
