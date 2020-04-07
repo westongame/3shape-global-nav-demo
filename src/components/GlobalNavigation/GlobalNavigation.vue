@@ -56,6 +56,8 @@
             v-if="activeMenu === 'account'"
             :token="token"
             :userName="userName"
+            :changeProfileUrl="changeProfileUrl"
+            :logoutUrl="logoutUrl"
         />
     </div>
 </template>

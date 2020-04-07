@@ -8,11 +8,19 @@ export default {
     props: {
         token: {
             type: String,
-            required: true
+            default: null
         },
         userName: {
             type: String,
             default: null
+        },
+        changeProfileUrl: {
+            type: String,
+            default: '/profile'
+        },
+        logoutUrl: {
+            type: String,
+            default: '/account/logout'
         }
     },
 

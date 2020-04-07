@@ -7,27 +7,22 @@ export default {
                 {
                     name: 'My 3Shape',
                     icon: 'my3shape',
-                    url: 'https://3shape.com'
+                    url: 'https://identity.3shape.com/'
                 },
                 {
                     name: 'eCommerce',
                     icon: 'ecommerce',
-                    url: 'https://3shape.com'
+                    url: 'https://ecom.3shape.com/'
                 },
                 {
                     name: 'Communicate',
                     icon: 'communicate',
-                    url: 'https://3shape.com'
+                    url: 'https://portal.3shapecommunicate.com/'
                 },
                 {
                     name: 'Partner Portal',
                     icon: 'partnerPortal',
-                    url: 'https://3shape.com'
-                },
-                {
-                    name: 'Community',
-                    icon: 'community',
-                    url: 'https://3shape.com'
+                    url: 'https://partner.3shape.com/'
                 }
             ]
         };

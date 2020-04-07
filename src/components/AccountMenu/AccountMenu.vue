@@ -27,17 +27,12 @@
 
         <div class="account-menu__footer">
             <div class="account-menu__edit">
-                <a
-                    href="/account/login?ReturnUrl=%2Fprofile"
-                    target="_blank"
-                >
+                <a :href="changeProfileUrl">
                     Change Profile
                 </a>
             </div>
             <div class="account-menu__logout">
-                <a
-                    href="/account/logout"
-                >
+                <a :href="logoutUrl">
                     Log out
                 </a>
             </div>
