@@ -1,16 +1,40 @@
-# @3shape-global-nav-demo
+# 3shape-global-nav-demo
 
-### Compiles and hot-reloads for development
+## How to use
+Install package
+```
+npm i 3shape-global-nav-demo
+```
+Add import
+```
+import '3shape-global-nav-demo';
+```
+Use tag
+```
+<g-navigation
+    userName="{userName}"
+    token="{token}"
+    editProfileUrl="{editProfileUrl}"
+    logoutUrl="{logoutUrl}"
+></g-navigation>
+```
+Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| {userName} | String | null | shows user name in account menu |
+| {token} | String | null | the same as userName. component decodes token for you and gets userName from it. if you specify {userName} - {token} will not work |
+| {editProfileUrl} | String | null | link to user profile page |
+| {logoutUrl} | String | null | link to logout page |
+
+## How to develop
+```
+npm i
+```
+```
+npm run watch
+```
 ```
 npm run serve
 ```
-
-### Builds library bundle
-```
-npm run build-bundle
-```
-
-### Lints files
-```
-npm run lint
-```
+Go to http://localhost:8000
