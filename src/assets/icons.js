@@ -2,53 +2,6 @@ import { html } from 'lit-element';
 
 
 const getIcon = (name) => {
-    if (name === 'my3shape') {
-        return html`
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="38"
-                height="38"
-            >
-                <g class="svg-color2" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(0 14)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(0 28)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(14 14)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(14)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(14 28)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(28 28)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(28 14)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-                <g class="svg-color" transform="translate(28)" fill="none" stroke="#828289" stroke-width="1.6px">
-                    <rect width="10" height="10" rx="3" stroke="none" />
-                    <rect x=".8" y=".8" width="8.4" height="8.4" rx="2.2" fill="none" />
-                </g>
-            </svg>
-        `;
-    }
-
     if (name === 'ecommerce') {
         return html`
             <svg

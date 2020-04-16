@@ -3,9 +3,13 @@
 ## How to use
 Install package
 ```
-npm i 3shape-global-nav-demo
+npm i 3shape-global-nav-demo @webcomponents/webcomponentsjs
 ```
-Add import
+Add polyfill import
+```
+import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
+```
+Add component import
 ```
 import '3shape-global-nav-demo';
 ```
@@ -23,7 +27,7 @@ Props
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | {userName} | String | null | shows user name in account menu |
-| {token} | String | null | the same as userName. component decodes token for you and gets userName from it. if you specify {userName} - {token} will not work |
+| {token} | String | null | the same as {userName}. component decodes token for you and gets userName from it. if you specify {userName} - {token} will not work |
 | {editProfileUrl} | String | null | link to user profile page |
 | {logoutUrl} | String | null | link to logout page |
 
