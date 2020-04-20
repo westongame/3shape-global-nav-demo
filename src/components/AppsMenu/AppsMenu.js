@@ -3,6 +3,8 @@ import {
     html
 } from 'lit-element';
 
+import appsConfig from './appsConfig.json';
+
 import getIcon from '../../assets/icons.js';
 
 import css from './AppsMenu-css.js';
@@ -16,23 +18,7 @@ class AppsMenu extends LitElement {
     constructor() {
         super();
 
-        this.apps = [
-            {
-                name: 'eCommerce',
-                icon: 'ecommerce',
-                url: 'https://ecom.3shape.com/'
-            },
-            {
-                name: 'Communicate',
-                icon: 'communicate',
-                url: 'https://portal.3shapecommunicate.com/'
-            },
-            {
-                name: 'Partner Portal',
-                icon: 'partnerPortal',
-                url: 'https://partner.3shape.com/'
-            }
-        ];
+        this.apps = appsConfig;
     }
 
     render() {

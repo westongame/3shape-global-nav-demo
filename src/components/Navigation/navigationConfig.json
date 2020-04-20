@@ -1,0 +1,12 @@
+[
+  {
+      "name": "apps",
+      "icon": "apps",
+      "title": "Apps"
+  },
+  {
+      "name": "account",
+      "icon": "account",
+      "title": "Account"
+  }
+]
