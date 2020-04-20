@@ -5,6 +5,8 @@ import {
 } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 
+import navigationConfig from './navigationConfig.json';
+
 import '../AppsMenu/AppsMenu.js';
 import '../AccountMenu/AccountMenu.js';
 
@@ -32,6 +34,7 @@ class Navigation extends LitElement {
         super();
 
         this.activeMenu = null;
+        this.navigation = navigationConfig;
     }
 
     firstUpdated() {
@@ -62,38 +65,42 @@ class Navigation extends LitElement {
         this.activeMenu = null;
     }
 
+    renderNavigationMenu() {
+        switch (this.activeMenu) {
+            case 'apps':
+                return html`<g-apps-menu></g-apps-menu>`;
+            case 'account':
+                return (html`
+                    <g-account-menu
+                        .userName="${this.userName}"
+                        .editProfileUrl="${this.editProfileUrl}"
+                        .logoutUrl="${this.logoutUrl}"
+                    ></g-account-menu>
+                `);
+            default:
+                return null;
+        }
+    }
+
     render() {
         return html`
             <div class="navigation">
-                <div
-                    class="${classMap({
-                        'navigation__icon-btn-wrap': true,
-                        'navigation__icon-btn-wrap_state_active': this.activeMenu === 'apps'
-                    })}"
-                >
+                ${this.navigation.map((item) => (html`
                     <div
-                        class="navigation__icon-btn"
-                        title="Apps"
-                        @click="${() => { this.onMenuClick('apps'); }}"
+                        class="${classMap({
+                            'navigation__icon-btn-wrap': true,
+                            'navigation__icon-btn-wrap_state_active': this.activeMenu === item.name
+                        })}"
                     >
-                        ${getIcon('apps')}
+                        <div
+                            class="navigation__icon-btn"
+                            title="${item.title}"
+                            @click="${() => { this.onMenuClick(item.name); }}"
+                        >
+                            ${getIcon(item.icon)}
+                        </div>
                     </div>
-                </div>
-
-                <div
-                    class="${classMap({
-                        'navigation__icon-btn-wrap': true,
-                        'navigation__icon-btn-wrap_state_active': this.activeMenu === 'account'
-                    })}"
-                >
-                    <div
-                        class="navigation__icon-btn"
-                        title="Profile"
-                        @click="${() => { this.onMenuClick('account'); }}"
-                    >
-                        ${getIcon('account')}
-                    </div>
-                </div>
+                `))}
 
                 ${this.activeMenu ? html`
                     <div
@@ -102,15 +109,7 @@ class Navigation extends LitElement {
                     ></div>
 
                     <div class="navigation__menu">
-                        ${this.activeMenu === 'apps' ? html`<g-apps-menu></g-apps-menu>` : null}
-
-                        ${this.activeMenu === 'account' ? html`
-                            <g-account-menu
-                                .userName="${this.userName}"
-                                .editProfileUrl="${this.editProfileUrl}"
-                                .logoutUrl="${this.logoutUrl}"
-                            ></g-account-menu>
-                        ` : null}
+                        ${this.renderNavigationMenu()}
                     </div>
                 ` : null}
             </div>
