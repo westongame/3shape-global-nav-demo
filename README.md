@@ -1,13 +1,15 @@
 # 3shape-global-nav-demo
 
 ## How to use
-Install package
+Install packages
 ```
 npm i 3shape-global-nav-demo @webcomponents/webcomponentsjs
 ```
 Add polyfill import
 ```
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
+// or dynamical
+import '@webcomponents/webcomponentsjs/webcomponents-loader.js';
 ```
 Add component import
 ```
@@ -16,10 +18,10 @@ import '3shape-global-nav-demo';
 Use tag
 ```
 <g-navigation
-    userName="{userName}"
+    username="{userName}"
     token="{token}"
-    editProfileUrl="{editProfileUrl}"
-    logoutUrl="{logoutUrl}"
+    editprofileurl="{editProfileUrl}"
+    logouturl="{logoutUrl}"
 ></g-navigation>
 ```
 Props

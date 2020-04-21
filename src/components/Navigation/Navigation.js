@@ -1,4 +1,4 @@
-/* eslint-disable indent, no-console */
+/* eslint-disable indent */
 import {
     LitElement,
     html
@@ -31,6 +31,17 @@ class Navigation extends LitElement {
     constructor() {
         super();
 
+        this.buttons = [
+            {
+                name: 'apps',
+                icon: 'apps',
+                title: 'Apps'
+            }, {
+                name: 'account',
+                icon: 'account',
+                title: 'Account'
+            }
+        ];
         this.activeMenu = null;
     }
 
@@ -41,59 +52,68 @@ class Navigation extends LitElement {
 
                 this.userName = `${decodedToken.firstName} ${decodedToken.lastName}`;
             } else {
-                console.error('Navigation: userName or token is not specified');
+                throw new Error('Navigation: userName or token is not specified');
             }
         }
 
         if (!this.editProfileUrl) {
-            console.error('Navigation: editProfileUrl is not specified');
+            throw new Error('Navigation: editProfileUrl is not specified');
         }
 
         if (!this.logoutUrl) {
-            console.error('Navigation: logoutUrl is not specified');
+            throw new Error('Navigation: logoutUrl is not specified');
         }
     }
 
     onMenuClick(context) {
-        this.activeMenu = context;
+        if (context !== this.activeMenu) {
+            this.activeMenu = context;
+        } else {
+            this.onMenuClose();
+        }
     }
 
     onMenuClose() {
         this.activeMenu = null;
     }
 
+    renderMenu() {
+        if (this.activeMenu === 'apps') {
+            return html`<g-apps-menu></g-apps-menu>`;
+        }
+
+        if (this.activeMenu === 'account') {
+            return html`
+                <g-account-menu
+                    .userName="${this.userName}"
+                    .editProfileUrl="${this.editProfileUrl}"
+                    .logoutUrl="${this.logoutUrl}"
+                ></g-account-menu>
+            `;
+        }
+
+        return null;
+    }
+
     render() {
         return html`
             <div class="navigation">
-                <div
-                    class="${classMap({
-                        'navigation__icon-btn-wrap': true,
-                        'navigation__icon-btn-wrap_state_active': this.activeMenu === 'apps'
-                    })}"
-                >
+                ${this.buttons.map((button) => (html`
                     <div
-                        class="navigation__icon-btn"
-                        title="Apps"
-                        @click="${() => { this.onMenuClick('apps'); }}"
+                        class="${classMap({
+                            'navigation__icon-btn-wrap': true,
+                            'navigation__icon-btn-wrap_state_active': this.activeMenu === button.name
+                        })}"
                     >
-                        ${getIcon('apps')}
+                        <div
+                            class="navigation__icon-btn"
+                            title="${button.title}"
+                            @click="${() => { this.onMenuClick(button.name); }}"
+                        >
+                            ${getIcon(button.icon)}
+                        </div>
                     </div>
-                </div>
-
-                <div
-                    class="${classMap({
-                        'navigation__icon-btn-wrap': true,
-                        'navigation__icon-btn-wrap_state_active': this.activeMenu === 'account'
-                    })}"
-                >
-                    <div
-                        class="navigation__icon-btn"
-                        title="Profile"
-                        @click="${() => { this.onMenuClick('account'); }}"
-                    >
-                        ${getIcon('account')}
-                    </div>
-                </div>
+                `))}
 
                 ${this.activeMenu ? html`
                     <div
@@ -102,15 +122,7 @@ class Navigation extends LitElement {
                     ></div>
 
                     <div class="navigation__menu">
-                        ${this.activeMenu === 'apps' ? html`<g-apps-menu></g-apps-menu>` : null}
-
-                        ${this.activeMenu === 'account' ? html`
-                            <g-account-menu
-                                .userName="${this.userName}"
-                                .editProfileUrl="${this.editProfileUrl}"
-                                .logoutUrl="${this.logoutUrl}"
-                            ></g-account-menu>
-                        ` : null}
+                        ${this.renderMenu()}
                     </div>
                 ` : null}
             </div>

@@ -39,10 +39,6 @@ export default css`
         fill: #5F5F64;
     }
 
-    .navigation__icon-btn-wrap_state_active .navigation__icon-btn:hover {
-        cursor: default;
-    }
-
     .navigation__icon-btn-wrap_state_active .svg-color {
         fill: #5F5F64;
     }
@@ -62,7 +58,7 @@ export default css`
         right: 0;
         z-index: 2;
         font-size: 18px;
-        box-shadow: 0px 2px 14px #0000001A;
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.1);
     }
 
     .navigation__icon-btn-wrap_state_active::before {
